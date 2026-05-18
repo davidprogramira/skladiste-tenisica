@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include "tenisica.h"
 #include "funkcije.h"
+#include "datoteka.h"
 
 int main() {
     int izbor;
@@ -30,15 +31,15 @@ int main() {
         scanf("%d", &izbor);
 
 
-    switch ((OpcijaProg)izbor) {
+        switch ((OpcijaProg)izbor) {
         case DODAJ:    dodajTenisicu(&tenisice, &n, &kapacitet);  break;
         case ISPIS:    ispisTenisica(tenisice, n);                break;
         case UREDI:    urediTenisicu(tenisice, n);                break;
         case OBRISI:   obrisiTenisicu(&tenisice, &n);             break;
         case PRETRAZI: pretraziTenisice(tenisice, n);             break;
         case SORTIRAJ: sortirajTenisice(tenisice, n);             break;
-        case SPREMI:   printf("Spremanje...\n");                  break;
-        case UCITAJ:   printf("Ucitavanje...\n");                 break;
+        case SPREMI:   spremiUDatoteku(tenisice, n);              break;
+        case UCITAJ:   ucitajIzDatoteke(&tenisice, &n, &kapacitet); break;
         case IZLAZ:    printf("Izlaz...\n");                      break;
         default:       printf("Nepostojeca opcija!\n");
         }
